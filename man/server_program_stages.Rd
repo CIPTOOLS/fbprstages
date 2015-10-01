@@ -4,7 +4,8 @@
 \alias{server_program_stages}
 \title{server_program_stages}
 \usage{
-server_program_stages(input, output, session, dom = "hot_programstage")
+server_program_stages(input, output, session, dom = "hot_programstage",
+  values)
 }
 \arguments{
 \item{input}{shinyserver input}
@@ -14,6 +15,8 @@ server_program_stages(input, output, session, dom = "hot_programstage")
 \item{session}{shinyserver session}
 
 \item{dom}{target dom element name}
+
+\item{values}{reactive values}
 }
 \description{
 Constructs table
