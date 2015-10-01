@@ -31,10 +31,11 @@ server_program_stages <- function(input, output, session, dom="hot_programstage"
     if(!is.null(values[["hot_crops"]])){
       # merge crop levels
       crops <- values[["hot_crops"]]
-      crop_levels = unique(c(as.character(DF$crop_id), as.character(crops$crop_id)))
       DF$crop_id <- as.character(DF$crop_id)
-      DF$crop_id <- as.factor(DF$crop_id)
-      levels(DF$crop_id) <- crop_levels
+      cs_id <- as.character(crops$crop_id)
+
+      crop_levels = unique(c(DF$crop_id, cs_id ))
+      DF$crop_id <- factor(DF$crop_id, levels = crop_levels)
     }
 
     setHot_program_stage(DF)
